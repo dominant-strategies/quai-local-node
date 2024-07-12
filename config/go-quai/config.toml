@@ -1,0 +1,85 @@
+[global]
+datadir-ancient = ''
+log-level = 'debug'
+
+[metrics]
+enabled = true
+metrics-addr = '127.0.0.1'
+metrics-expensive = false
+metrics-port = 6060
+
+[node]
+starting-expansion-num = 4
+allow-insecure-unlock = false
+bloomfilter-size = 2048
+bootnode = false
+cache = 1024
+cache-database = 50
+cache-gc = 25
+cache-noprefetch = false
+cache-preimages = false
+cache-snapshot = 10
+cache-trie = 15
+cache-trie-journal = 'triecache'
+cache-trie-rejournal = 3600000000000
+coinbases = '0x00a3e45aa16163F2663015b6695894D918866d19,0x01a3e45aa16163F2663015b6695894D918866d19,0x02a3e45aa16163F2663015b6695894D918866d19,0x10a3e45aa16163F2663015b6695894D918866d19,0x11a3e45aa16163F2663015b6695894D918866d19,0x12a3e45aa16163F2663015b6695894D918866d19,0x20a3e45aa16163F2663015b6695894D918866d19,0x21a3e45aa16163F2663015b6695894D918866d19,0x22a3e45aa16163F2663015b6695894D918866d19'
+consensus-engine = 'blake3'
+db-engine = 'leveldb'
+dev-period = 0
+dom-url = 'ws://127.0.0.1:8546'
+environment = 'lighthouse'
+gpo-blocks = 20
+gpo-ignoreprice = 2
+gpo-maxprice = 500000000000
+gpo-percentile = 60
+identity = ''
+ipaddr = '0.0.0.0'
+location = ''
+max-peers = '50'
+min-peers = '5'
+miner-gasprice = '1000000000'
+networkid = 1
+nonce = 5926993 
+password = ''
+port = '4001'
+portmap = true
+private-key = ''
+quaistats = ''
+sendfullstats = false
+slices = '[0 0],[0 1],[0 2],[1 0],[1 1],[1 2],[2 0],[2 1],[2 2]'
+snapshot = true
+solo = false
+sub-urls = 'ws://127.0.0.1:8546'
+txlookuplimit = 2350000
+unlock = ''
+vmdebug = false
+whitelist = ''
+
+[rpc]
+gascap = 50000000
+http = true
+http-addr = '0.0.0.0'
+http-api = 'quai,txpool'
+http-corsdomain = ''
+http-rpcprefix = ''
+http-vhosts = '*'
+preload = ''
+txfeecap = 0
+ws = true
+ws-addr = '0.0.0.0'
+ws-api = 'eth,quai,txpool'
+ws-origins = ''
+ws-rpcprefix = ''
+
+[txpool]
+accountqueue = 1
+accountslots = 1
+globalqueue = 2048
+globalslots = 10024
+journal = 'transactions.rlp'
+lifetime = 10800000000000
+locals = ''
+nolocals = false
+pricebump = 10
+pricelimit = 1
+rejournal = 3600000000000

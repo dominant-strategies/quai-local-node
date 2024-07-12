@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  go-quai:
+    image: quainetwork/go-quai:v0.19.0-pre.6
+    volumes:
+      - ./config/go-quai/config.toml:/root/.config/go-quai/config.toml
+      - ./genallocs:/root/genallocs
+    ports:
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
+      - "8200:8200"
+      - "8201:8201"
+      - "8202:8202"
+      - "8220:8220"
+      - "8221:8221"
+      - "8222:8222"
+      - "8240:8240"
+      - "8241:8241"
+      - "8242:8242"
+      - "9001:9001"
+      - "9002:9002"
+      - "9003:9003"
+      - "9004:9004"
+      - "9200:9200"
+      - "9201:9201"
+      - "9202:9202"
+      - "9220:9220"
+      - "9221:9221"
+      - "9222:9222"
+      - "9240:9240"
+      - "9241:9241"
+      - "9242:9242"
+      - "4001:4001"
+    deploy:
+      replicas: 1
+    command: ["./build/bin/go-quai", "start"]
+    networks:
+      - quainet
+  cyprus1-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/cyprus1-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  cyprus2-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/cyprus2-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  cyprus3-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/cyprus3-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  paxos1-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/paxos1-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  paxos2-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/paxos2-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  paxos3-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/paxos3-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  hydra1-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/hydra1-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  hydra2-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/hydra2-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+  hydra3-quai-cpu-miner:
+    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    volumes:
+      - ./config/quai-cpu-miner/hydra3-config.yaml:/root/config/config.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+      replicas: 1
+    command: ["./build/bin/quai-cpu-miner"]
+    networks:
+      - quainet
+
+networks:
+  quainet:
+    driver: bridge
+
