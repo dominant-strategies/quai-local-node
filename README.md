@@ -88,7 +88,7 @@ const currentBlock = await provider.getBlockNumber('Cyprus1')
 
 ### JSON RPC API
 
-You can make requests to your local network using the [JSON RPC API](/build/playground/overview) and [cURL](https://curl.se/):
+You can make requests to your local network using the [JSON RPC API](https://docs.qu.ai/build/playground/overview) and [cURL](https://curl.se/):
 
 ```bash
 # get paxos 3 gas price
