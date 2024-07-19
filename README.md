@@ -1,10 +1,10 @@
-# quai-compose
+# Quai Local Network
 
 Run a containerized instance of Quai Network on a local machine.
 
-## Install Dependencies
+## Getting Started
 
-### Docker Compose
+### Install Docker Compose
 
 There are two methods to install Docker Compose:
 
@@ -13,13 +13,11 @@ There are two methods to install Docker Compose:
 
 If you're unsure which method is best for you, visit the [Installing Docker Compose](https://docs.docker.com/compose/install/) page for more information.
 
-### Local Node Runner
-
-Clone the `quai-compose` repository:
+### Clone this Repository
 
 ```bash
-git clone https://github.com/dominant-strategies/quai-compose
-cd quai-compose
+git clone https://github.com/dominant-strategies/quai-local-node
+cd quai-local-node
 ```
 
 ## Run
@@ -34,16 +32,16 @@ After running this command, you'll see each of the processes start up. One go-qu
 
 ```bash
 [+] Running 10/10
- ⠿ Container quai-compose-paxos2-quai-cpu-miner-1   Started
- ⠿ Container quai-compose-cyprus1-quai-cpu-miner-1  Started
- ⠿ Container quai-compose-cyprus2-quai-cpu-miner-1  Started
- ⠿ Container quai-compose-hydra2-quai-cpu-miner-1   Started
- ⠿ Container quai-compose-paxos1-quai-cpu-miner-1   Started
- ⠿ Container quai-compose-cyprus3-quai-cpu-miner-1  Started
- ⠿ Container quai-compose-go-quai-1                 Started
- ⠿ Container quai-compose-paxos3-quai-cpu-miner-1   Started
- ⠿ Container quai-compose-hydra1-quai-cpu-miner-1   Started
- ⠿ Container quai-compose-hydra3-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-paxos2-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-cyprus1-quai-cpu-miner-1  Started
+ ⠿ Container quai-local-node-cyprus2-quai-cpu-miner-1  Started
+ ⠿ Container quai-local-node-hydra2-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-paxos1-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-cyprus3-quai-cpu-miner-1  Started
+ ⠿ Container quai-local-node-go-quai-1                 Started
+ ⠿ Container quai-local-node-paxos3-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-hydra1-quai-cpu-miner-1   Started
+ ⠿ Container quai-local-node-hydra3-quai-cpu-miner-1   Started
 ```
 
 To stop the network instance, run:
@@ -54,7 +52,7 @@ docker-compose down
 
 ## Interacting With The Local Network
 
-To interact with the local network instance, you can use the [Quais SDK](https://docs.qu.ai/sdk/introduction) or [JSON RPC API](https://docs.qu.ai/build/playground/overview). The network is accesible via specific networking ports on `localhost`.
+To interact with the local network instance, you can use the [Quai Javascript SDK](https://docs.qu.ai/sdk/introduction) or [JSON RPC API](https://docs.qu.ai/build/playground/overview). The network is accesible via specific networking ports on `localhost`.
 
 | Shard    | HTTP Port | WS Port |
 | -------- | --------- | ------- |
@@ -74,16 +72,16 @@ To interact with the local network instance, you can use the [Quais SDK](https:/
 
 ### SDK
 
-You can use the Quais SDK to create a provider connected to your local network instance and get chain data and send transactions.
+You can use the Quai Javascript SDK to create a provider connected to your local network instance and get chain data and send transactions.
 
 ```ts
-import { quais } from 'quais'
+import { JsonRpcProvider, Shard } from "quais";
 
 // create local provider
-const provider = new quais.JsonRpcProvider('http://localhost')
+const provider = new JsonRpcProvider("http://localhost");
 
 // get block number on cyprus 1
-const currentBlock = await provider.getBlockNumber('Cyprus1')
+const currentBlock = await provider.getBlockNumber(Shard.Cyprus1);
 ```
 
 ### JSON RPC API
@@ -105,9 +103,9 @@ curl --request POST \
 
 ## Accounts
 
-The local network we just spun up starts with a number of accounts pre-loaded with Quai and Qi tokens for each shard. A full list of accounts with pre-loaded balances, sorted by shard and ledger, can be found in the [genallocs](https://github.com/dominant-strategies/quai-compose/tree/main/genallocs) directory of the quai-compose repository.
+The local network comes with pre-loaded Quai and Qi accounts for each shard. A full list of accounts with pre-loaded balances, sorted by shard and ledger, can be found in the [genallocs](https://github.com/dominant-strategies/quai-local-node/tree/main/genallocs) directory of this repository.
 
-**These accounts are for local testing purposes and should not be used in any production environment. They are not secure and should only be used for testing.**
+**These accounts are for local testing purposes ONLY and should NEVER be used in any production environment.**
 
 For quick reference, 1 account for each shard and ledger can be found below:
 
