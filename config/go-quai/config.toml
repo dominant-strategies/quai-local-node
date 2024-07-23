@@ -1,6 +1,6 @@
 [global]
 datadir-ancient = ''
-log-level = 'debug'
+log-level = 'info'
 
 [metrics]
 enabled = true
