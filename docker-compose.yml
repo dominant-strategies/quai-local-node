@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   go-quai:
-    image: quainetwork/go-quai:v0.19.0-pre.6
+    image: quainetwork/go-quai:v0.19.0-pre.14
+    container_name: go-quai
+    hostname: go-quai
     volumes:
       - ./config/go-quai/config.toml:/root/.config/go-quai/config.toml
       - ./genallocs:/root/genallocs
@@ -40,7 +42,9 @@ services:
     networks:
       - quainet
   cyprus1-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: cyprus1-quai-cpu-miner
+    hostname: cyprus1-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/cyprus1-config.yaml:/root/config/config.yaml
     deploy:
@@ -53,7 +57,9 @@ services:
       - quainet
 
   cyprus2-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: cyprus2-quai-cpu-miner
+    hostname: cyprus2-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/cyprus2-config.yaml:/root/config/config.yaml
     deploy:
@@ -66,7 +72,9 @@ services:
       - quainet
 
   cyprus3-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: cyprus3-quai-cpu-miner
+    hostname: cyprus3-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/cyprus3-config.yaml:/root/config/config.yaml
     deploy:
@@ -79,7 +87,9 @@ services:
       - quainet
 
   paxos1-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: paxos1-quai-cpu-miner
+    hostname: paxos1-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/paxos1-config.yaml:/root/config/config.yaml
     deploy:
@@ -92,7 +102,9 @@ services:
       - quainet
 
   paxos2-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: paxos2-quai-cpu-miner
+    hostname: paxos2-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/paxos2-config.yaml:/root/config/config.yaml
     deploy:
@@ -105,7 +117,9 @@ services:
       - quainet
 
   paxos3-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: paxos3-quai-cpu-miner
+    hostname: paxos3-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/paxos3-config.yaml:/root/config/config.yaml
     deploy:
@@ -118,7 +132,9 @@ services:
       - quainet
 
   hydra1-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: hydra1-quai-cpu-miner
+    hostname: hydra1-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/hydra1-config.yaml:/root/config/config.yaml
     deploy:
@@ -131,7 +147,9 @@ services:
       - quainet
 
   hydra2-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: hydra2-quai-cpu-miner
+    hostname: hydra2-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/hydra2-config.yaml:/root/config/config.yaml
     deploy:
@@ -144,7 +162,9 @@ services:
       - quainet
 
   hydra3-quai-cpu-miner:
-    image: quainetwork/quai-cpu-miner:0.1.0-test.4
+    image: quainetwork/quai-cpu-miner:0.1.0-test.5
+    container_name: hydra3-quai-cpu-miner
+    hostname: hydra3-quai-cpu-miner
     volumes:
       - ./config/quai-cpu-miner/hydra3-config.yaml:/root/config/config.yaml
     deploy:
