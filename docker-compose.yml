@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   go-quai:
-    image: quainetwork/go-quai:v0.19.0-pre.14
+    image: quainetwork/go-quai:v0.19.0-pre.20
     container_name: go-quai
     hostname: go-quai
     volumes:
