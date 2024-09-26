@@ -54,6 +54,7 @@ txlookuplimit = 2350000
 unlock = ''
 vmdebug = false
 whitelist = ''
+index-address-utxos = true
 
 [rpc]
 gascap = 50000000
