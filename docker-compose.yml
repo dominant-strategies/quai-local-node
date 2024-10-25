@@ -2,12 +2,13 @@ version: '3.8'
 
 services:
   go-quai:
-    image: quainetwork/go-quai:v0.19.0-pre.37
+    image: quainetwork/go-quai:v0.19.0-pre.39
     container_name: go-quai
     hostname: go-quai
     volumes:
       - ./config/go-quai/config.toml:/root/.config/go-quai/config.toml
       - ./genallocs:/root/genallocs
+      - ./volumes/go-quai/crashLogs:/root/crashLogs
     ports:
       - "8001:8001"
       - "8002:8002"
@@ -38,7 +39,9 @@ services:
       - "4001:4001"
     deploy:
       replicas: 1
-    command: ["./build/bin/go-quai", "start", "--node.genesis-nonce", "7964372789542285"]
+    command: /bin/sh -c "./build/bin/go-quai start --node.genesis-nonce 7964372789542285 > /root/crashLogs/logs.log 2>&1"
+
+
     networks:
       - quainet
   cyprus1-quai-cpu-miner:
